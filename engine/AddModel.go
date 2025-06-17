@@ -81,7 +81,6 @@ func addModel(c *gin.Context) {
 	switch backendType {
 	case "mlflow":
 		modelSetting.Raiser = serverRaiser.RaiseMLFlowServer
-
 	case "inhouse":
 		modelSetting.Raiser = serverRaiser.InHouse
 	default:

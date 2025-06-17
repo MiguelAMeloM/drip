@@ -55,7 +55,7 @@ func (cb *LoadBalancer) Idx() int {
 		ci = 0
 	}
 
-	if ci >= len(cb.proxies)-1 {
+	if ci == len(cb.proxies)-1 {
 		cb.idx = 0
 	} else {
 		cb.idx++
@@ -67,8 +67,8 @@ func (cb *LoadBalancer) Idx() int {
 func (cb *LoadBalancer) ForwardRequest(r *http.Request) (gin.H, error) {
 	started := time.Now()
 	defer cb.Stats.Increment(started)
-	idx := cb.Idx()
 	cb.mutex.Lock()
+	idx := cb.Idx()
 	proxy := cb.proxies[idx]
 	cb.mutex.Unlock()
 	return proxy.ForwardRequest(r)

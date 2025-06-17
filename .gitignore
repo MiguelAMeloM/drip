@@ -1,0 +1,7 @@
+.dockerignore
+Dockerfile
+init.sh
+requirements.txt
+/logs
+/drip
+/.idea

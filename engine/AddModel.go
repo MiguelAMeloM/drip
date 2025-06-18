@@ -10,10 +10,10 @@
 package engine
 
 import (
-	"drip/core"
-	"drip/core/modelProxy"
-	"drip/core/serverRaiser"
 	"fmt"
+	"github.com/MiguelAMeloM/drip/core"
+	"github.com/MiguelAMeloM/drip/core/modelProxy"
+	"github.com/MiguelAMeloM/drip/core/serverRaiser"
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"strconv"

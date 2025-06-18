@@ -10,8 +10,8 @@
 package engine
 
 import (
-	"drip/core"
 	"fmt"
+	"github.com/MiguelAMeloM/drip/core"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )

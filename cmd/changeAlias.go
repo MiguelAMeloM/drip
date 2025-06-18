@@ -10,7 +10,7 @@
 package cmd
 
 import (
-	"drip/engine"
+	"github.com/MiguelAMeloM/drip/engine"
 	"github.com/spf13/cobra"
 	"net/http"
 	"net/url"

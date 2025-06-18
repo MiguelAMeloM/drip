@@ -11,7 +11,7 @@ package modelProxy
 
 import (
 	"crypto/rand"
-	"drip/core/serverRaiser"
+	"github.com/MiguelAMeloM/drip/core/serverRaiser"
 	"github.com/gin-gonic/gin"
 	"net"
 	"net/http"
@@ -35,6 +35,7 @@ type NewProxy func(NewModelSetting) Proxy
 type Proxy interface {
 	ForwardRequest(*http.Request) (gin.H, error)
 	Close()
+	GetUrls() []string
 }
 
 type ProxyBase struct {

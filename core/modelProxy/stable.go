@@ -10,9 +10,9 @@
 package modelProxy
 
 import (
-	"drip/core/serverRaiser"
 	"encoding/json"
 	"fmt"
+	"github.com/MiguelAMeloM/drip/core/serverRaiser"
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"os/exec"
@@ -64,4 +64,10 @@ func (s *StableRelease) ForwardRequest(request *http.Request) (gin.H, error) {
 
 func (s *StableRelease) Close() {
 	shutDownServer(&s.ProxyBase)
+}
+
+func (s *StableRelease) GetUrls() []string {
+	return []string{
+		fmt.Sprintf("%s:%d/%s", baseUrl, s.port, s.endpoint),
+	}
 }

@@ -10,9 +10,9 @@
 package modelProxy
 
 import (
-	"drip/core/serverRaiser"
 	"encoding/json"
 	"fmt"
+	"github.com/MiguelAMeloM/drip/core/serverRaiser"
 	"github.com/gin-gonic/gin"
 	"math/rand"
 	"net/http"
@@ -95,4 +95,11 @@ func (p *ABTesting) ForwardRequest(request *http.Request) (gin.H, error) {
 
 func (p *ABTesting) Close() {
 	shutDownServer(&p.ProxyBase)
+}
+
+func (p *ABTesting) GetUrls() []string {
+	return []string{
+		fmt.Sprintf("%s:%d/%s", baseUrl, p.portA, p.endpoint),
+		fmt.Sprintf("%s:%d/%s", baseUrl, p.portB, p.endpoint),
+	}
 }

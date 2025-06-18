@@ -10,11 +10,11 @@
 package cmd
 
 import (
-	"drip/core"
-	"drip/core/proxyStats"
-	"drip/engine"
 	"encoding/json"
 	"fmt"
+	"github.com/MiguelAMeloM/drip/core"
+	"github.com/MiguelAMeloM/drip/core/proxyStats"
+	"github.com/MiguelAMeloM/drip/engine"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 	"net/http"

@@ -1,4 +1,4 @@
-module drip
+module github.com/MiguelAMeloM/drip
 
 go 1.24.2
 

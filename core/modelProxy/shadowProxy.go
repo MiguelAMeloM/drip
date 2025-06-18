@@ -11,9 +11,9 @@ package modelProxy
 
 import (
 	"bytes"
-	"drip/core/serverRaiser"
 	"encoding/json"
 	"fmt"
+	"github.com/MiguelAMeloM/drip/core/serverRaiser"
 	"github.com/gin-gonic/gin"
 	"io"
 	"net/http"
@@ -102,4 +102,11 @@ func (p *ShadowProxy) ForwardRequest(request *http.Request) (gin.H, error) {
 
 func (p *ShadowProxy) Close() {
 	shutDownServer(&p.ProxyBase)
+}
+
+func (p *ShadowProxy) GetUrls() []string {
+	return []string{
+		fmt.Sprintf("%s:%d/%s", baseUrl, p.portShadow, p.endpoint),
+		fmt.Sprintf("%s:%d/%s", baseUrl, p.portStable, p.endpoint),
+	}
 }

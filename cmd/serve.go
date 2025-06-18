@@ -11,7 +11,7 @@ package cmd
 
 import (
 	"crypto/rand"
-	"drip/engine"
+	"github.com/MiguelAMeloM/drip/engine"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )

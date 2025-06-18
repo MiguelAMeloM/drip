@@ -11,10 +11,11 @@ package core
 
 import (
 	"bytes"
-	"drip/core/modelProxy"
-	"drip/core/proxyStats"
 	"encoding/json"
 	"errors"
+	"github.com/MiguelAMeloM/drip/core/modelProxy"
+	"github.com/MiguelAMeloM/drip/core/proxyStats"
+	"github.com/MiguelAMeloM/drip/core/warming"
 	"github.com/gin-gonic/gin"
 	"io"
 	"net/http"
@@ -111,6 +112,11 @@ func (mm *modelsManager) GenStats() (io.Reader, error) {
 	} else {
 		return bytes.NewReader(b), nil
 	}
+}
+
+func RaiseSubprocesses() {
+	go AutoScaling()
+	go warming.PeriodicalWarmUp()
 }
 
 func AutoScaling() {

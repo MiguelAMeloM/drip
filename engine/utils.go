@@ -10,9 +10,9 @@
 package engine
 
 import (
-	"drip/core"
 	"encoding/json"
 	"fmt"
+	"github.com/MiguelAMeloM/drip/core"
 	"github.com/gin-gonic/gin"
 	"io"
 	"net/http"

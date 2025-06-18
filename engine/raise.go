@@ -10,8 +10,8 @@
 package engine
 
 import (
-	"drip/core"
 	"fmt"
+	"github.com/MiguelAMeloM/drip/core"
 	"github.com/gin-gonic/gin"
 	"github.com/spf13/viper"
 	"github.com/zsais/go-gin-prometheus"
@@ -93,7 +93,7 @@ func RaiseMainServer(token string) {
 	sigChan := make(chan os.Signal, 1)
 	signal.Notify(sigChan, syscall.SIGINT, syscall.SIGTERM)
 	go shutDown(sigChan)
-	go core.AutoScaling() //Monitor the number of requests per second to autoscale the service
+	core.RaiseSubprocesses()
 
 	err := router.Run(port)
 	if err != nil {

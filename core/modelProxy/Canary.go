@@ -10,9 +10,9 @@
 package modelProxy
 
 import (
-	"drip/core/serverRaiser"
 	"encoding/json"
 	"fmt"
+	"github.com/MiguelAMeloM/drip/core/serverRaiser"
 	"github.com/gin-gonic/gin"
 	"math/rand"
 	"net/http"
@@ -112,4 +112,11 @@ func (c *CanaryProxy) ForwardRequest(request *http.Request) (gin.H, error) {
 
 func (c *CanaryProxy) Close() {
 	shutDownServer(&c.ProxyBase)
+}
+
+func (c *CanaryProxy) GetUrls() []string {
+	return []string{
+		fmt.Sprintf("%s:%d/%s", baseUrl, c.portProd, c.endpoint),
+		fmt.Sprintf("%s:%d/%s", baseUrl, c.portDev, c.endpoint),
+	}
 }
